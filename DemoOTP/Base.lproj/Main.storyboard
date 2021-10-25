@@ -146,7 +146,7 @@
                                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                     </textField>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="bottom" secondItem="W9v-68-lCg" secondAttribute="bottom" id="KAk-Y0-dw7"/>
                                                                     <constraint firstItem="W9v-68-lCg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iiq-cT-HG3" secondAttribute="leading" id="U1C-zu-neG"/>
@@ -205,7 +205,7 @@
                                         <state key="normal" image="ic_close_circle"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="cpU-HV-FVa" firstAttribute="centerY" secondItem="Hye-08-Cgm" secondAttribute="centerY" id="4Zg-JL-gr3"/>
                                     <constraint firstItem="DWF-2I-LKZ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Hye-08-Cgm" secondAttribute="top" id="GQl-70-XFu"/>
@@ -244,9 +244,6 @@
     </scenes>
     <resources>
         <image name="ic_close_circle" width="19.5" height="19.5"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

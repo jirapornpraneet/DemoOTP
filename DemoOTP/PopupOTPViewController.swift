@@ -36,14 +36,17 @@ class PopupOTPViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textField.delegate = self
         setupInterface()
         setupOtpView()
     }
     
-   func setupInterface() {
+    func setupInterface() {
         setupOtpView()
+        textField.delegate = self
         textField.underlined(2)
+        btnConfirm.setupCorner(2)
+        btnConfirm.backgroundColor = #colorLiteral(red: 0.2039215686, green: 0.7647058824, blue: 0.5607843137, alpha: 1)
+        btnConfirm.setHolder(false, textColor: .white, bgColor: #colorLiteral(red: 0.2039215686, green: 0.7647058824, blue: 0.5607843137, alpha: 1))
         subTitleLabel.text = "ระบบจะส่งรหัส OT ไปให้ท่าน \nเพื่อยืนยันการเปลี่ยนแปลงเบอร์โทรศัพท์"
     }
     
@@ -65,7 +68,7 @@ class PopupOTPViewController: UIViewController {
     }
     
     func setEnableButton(_ isEnabled: Bool) {
-        
+        btnConfirm.setHolder(isEnabled, textColor: .white, bgColor: #colorLiteral(red: 0.2039215686, green: 0.7647058824, blue: 0.5607843137, alpha: 1))
     }
     
     
@@ -109,10 +112,14 @@ extension PopupOTPViewController: UITextFieldDelegate {
 extension PopupOTPViewController {
     
     func sendOTP(_ phoneNo: String) {
-        
+        self.state = .Confirm
+        self.lblSubtitle.text = "รหัสถูกส่งไปทาง SMS ที่เบอร์\n" + phoneNo
+        self.lblMessage?.text = "(Ref No: 1234)"
+        self.otpView.textFieldsCollection[0].becomeFirstResponder()
+        self.otpView.refreshView()
     }
     
     func validateOTP(_ otp: String) {
-       
+        self.onSuccess?()
     }
 }
