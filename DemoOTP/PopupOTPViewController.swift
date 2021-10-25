@@ -52,7 +52,7 @@ class PopupOTPViewController: UIViewController {
     
     func setupOtpView() {
         otpView.otpTextFieldsCount = 6
-        otpView.otpTextFieldActiveBorderColor = UIColor.systemPink
+        otpView.otpTextFieldActiveBorderColor = #colorLiteral(red: 0.3725490196, green: 0.462745098, blue: 0.8980392157, alpha: 1)
         otpView.otpTextFieldDefaultBorderColor = UIColor.lightGray
         otpView.otpTextFieldFontColor = UIColor.black
         otpView.activeHeight = 2
@@ -98,7 +98,7 @@ extension PopupOTPViewController: UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.underlined(2,color: UIColor.systemPink)
+        textField.underlined(2,color: #colorLiteral(red: 0.3725490196, green: 0.462745098, blue: 0.8980392157, alpha: 1))
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
