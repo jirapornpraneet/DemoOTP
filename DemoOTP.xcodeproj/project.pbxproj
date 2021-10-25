@@ -15,6 +15,9 @@
 		6A6D3F8427266B35005420E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A6D3F8227266B35005420E5 /* LaunchScreen.storyboard */; };
 		6A6D3F8D2726702E005420E5 /* SROTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6D3F8C2726702E005420E5 /* SROTPView.swift */; };
 		6A6D3F8F2726703C005420E5 /* SROTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6D3F8E2726703C005420E5 /* SROTPTextField.swift */; };
+		6A6D3F9127267223005420E5 /* PopupOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6D3F9027267223005420E5 /* PopupOTPViewController.swift */; };
+		6A6D3F9427267346005420E5 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6D3F9327267346005420E5 /* UITextField+Extension.swift */; };
+		6A6D3F9627267399005420E5 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6D3F9527267399005420E5 /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		6A6D3F8527266B35005420E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A6D3F8C2726702E005420E5 /* SROTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SROTPView.swift; sourceTree = "<group>"; };
 		6A6D3F8E2726703C005420E5 /* SROTPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SROTPTextField.swift; sourceTree = "<group>"; };
+		6A6D3F9027267223005420E5 /* PopupOTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupOTPViewController.swift; sourceTree = "<group>"; };
+		6A6D3F9327267346005420E5 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		6A6D3F9527267399005420E5 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +66,9 @@
 		6A6D3F7627266B34005420E5 /* DemoOTP */ = {
 			isa = PBXGroup;
 			children = (
+				6A6D3F922726733B005420E5 /* Extensions */,
 				6A6D3F8B27267017005420E5 /* SROTPView */,
+				6A6D3F9027267223005420E5 /* PopupOTPViewController.swift */,
 				6A6D3F7727266B34005420E5 /* AppDelegate.swift */,
 				6A6D3F7927266B34005420E5 /* SceneDelegate.swift */,
 				6A6D3F7B27266B34005420E5 /* ViewController.swift */,
@@ -79,6 +87,15 @@
 				6A6D3F8E2726703C005420E5 /* SROTPTextField.swift */,
 			);
 			path = SROTPView;
+			sourceTree = "<group>";
+		};
+		6A6D3F922726733B005420E5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6A6D3F9327267346005420E5 /* UITextField+Extension.swift */,
+				6A6D3F9527267399005420E5 /* String+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,9 +169,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A6D3F9627267399005420E5 /* String+Extension.swift in Sources */,
 				6A6D3F7C27266B34005420E5 /* ViewController.swift in Sources */,
 				6A6D3F8D2726702E005420E5 /* SROTPView.swift in Sources */,
+				6A6D3F9427267346005420E5 /* UITextField+Extension.swift in Sources */,
 				6A6D3F8F2726703C005420E5 /* SROTPTextField.swift in Sources */,
+				6A6D3F9127267223005420E5 /* PopupOTPViewController.swift in Sources */,
 				6A6D3F7827266B34005420E5 /* AppDelegate.swift in Sources */,
 				6A6D3F7A27266B34005420E5 /* SceneDelegate.swift in Sources */,
 			);
