@@ -1,0 +1,118 @@
+//
+//  PopupOTPViewController.swift
+//  DemoOTP
+//
+//  Created by iOS Dev on 25/10/2564 BE.
+//
+
+import UIKit
+
+class PopupOTPViewController: UIViewController {
+    
+    enum State {
+        case Sending, Confirm
+    }
+
+    @IBOutlet weak var btnConfirm: UIButton!
+    @IBOutlet weak var confirmView: UIView!
+    @IBOutlet weak var sendingView: UIView!
+    @IBOutlet weak var subTitleLabel: UILabel!
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var otpView: SROTPView!
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblSubtitle: UILabel!
+    @IBOutlet weak var lblMessage: UILabel?
+    
+    
+    var onSuccess: (()->())?
+    var isDone = false
+    var state = State.Sending {
+        didSet {
+            sendingView.isHidden = state == .Confirm
+            confirmView.isHidden = state == .Sending
+        }
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        textField.delegate = self
+        setupInterface()
+        setupOtpView()
+    }
+    
+   func setupInterface() {
+        setupOtpView()
+        textField.underlined(2)
+        subTitleLabel.text = "ระบบจะส่งรหัส OT ไปให้ท่าน \nเพื่อยืนยันการเปลี่ยนแปลงเบอร์โทรศัพท์"
+    }
+    
+    func setupOtpView() {
+        otpView.otpTextFieldsCount = 6
+        otpView.otpTextFieldActiveBorderColor = UIColor.systemPink
+        otpView.otpTextFieldDefaultBorderColor = UIColor.lightGray
+        otpView.otpTextFieldFontColor = UIColor.black
+        otpView.activeHeight = 2
+        otpView.inactiveHeight = 2
+        otpView.otpType = .UnderLined
+        otpView.size = 40
+        otpView.otpEnteredString = { pin in
+            if pin.count == 6 {
+                self.validateOTP(pin)
+            }
+        }
+        otpView.setUpOtpView()
+    }
+    
+    func setEnableButton(_ isEnabled: Bool) {
+        
+    }
+    
+    
+    // MARK: - Action
+    
+    @IBAction func sendOTPAction(_ sender: UIButton) {
+        if let number = textField.text {
+            self.sendOTP(number)
+        }
+    }
+    
+}
+
+
+extension PopupOTPViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if string != ""  {
+            let newString = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+            textField.text = newString.formattedNumber()
+            let replacing = newString.removingWhitespaces()
+            setEnableButton(replacing.regex(.phone) || replacing.count == 10)
+            return false
+        }
+        setEnableButton(false)
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.underlined(2,color: UIColor.systemPink)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.text == "" {
+            textField.underlined(2)
+        }
+    }
+}
+
+
+extension PopupOTPViewController {
+    
+    func sendOTP(_ phoneNo: String) {
+        
+    }
+    
+    func validateOTP(_ otp: String) {
+       
+    }
+}

@@ -1,24 +1,254 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SukhumvitSet-Bold.ttf">
+            <string>SukhumvitSet-Bold</string>
+        </array>
+        <array key="SukhumvitSet-Medium.ttf">
+            <string>SukhumvitSet-Medium</string>
+        </array>
+        <array key="SukhumvitSet-SemiBold.ttf">
+            <string>SukhumvitSet-SemiBold</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--PopupOTP View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PopupOTPViewController" customModule="DemoOTP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Hye-08-Cgm">
+                                <rect key="frame" x="19" y="288" width="375" height="320"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DWF-2I-LKZ">
+                                        <rect key="frame" x="0.0" y="5.5" width="375" height="309.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Gpz-lF-iNW">
+                                                <rect key="frame" x="20" y="20" width="335" height="269.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="กรอกรหัส OTP" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXn-90-Brl">
+                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="0RL-d6-KeS"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="23"/>
+                                                        <color key="textColor" red="0.37254901959999998" green="0.46274509800000002" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="รหัสถูกส่งไปทาง SMS ที่เบอร์  080-XXX-0000" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cO1-FO-YKg">
+                                                        <rect key="frame" x="0.0" y="60" width="335" height="50.5"/>
+                                                        <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="16"/>
+                                                        <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FTc-Lk-mRE">
+                                                        <rect key="frame" x="0.0" y="130.5" width="335" height="74"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPp-YQ-0jv" customClass="SROTPView" customModule="SOCHR" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="cMQ-KV-uIp"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Ref No: ID132)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a16-oV-Put">
+                                                                <rect key="frame" x="0.0" y="50" width="335" height="24"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="24" id="Kyy-xw-Fgv"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="16"/>
+                                                                <color key="textColor" red="0.37254901959999998" green="0.36078431370000003" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sSu-k7-QgW">
+                                                        <rect key="frame" x="0.0" y="224.5" width="335" height="45"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yM4-AB-G6O">
+                                                                <rect key="frame" x="0.0" y="0.0" width="335" height="45"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="45" id="wss-s3-boB"/>
+                                                                </constraints>
+                                                                <state key="normal">
+                                                                    <attributedString key="attributedTitle">
+                                                                        <fragment content="ขอรหัส OTP ใหม่">
+                                                                            <attributes>
+                                                                                <color key="NSColor" red="0.082352941176470587" green="0.22745098039215686" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <font key="NSFont" size="16" name="SukhumvitSet-Medium"/>
+                                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                <integer key="NSUnderline" value="1"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                </state>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Gpz-lF-iNW" firstAttribute="leading" secondItem="DWF-2I-LKZ" secondAttribute="leading" constant="20" id="GBU-Y7-5cB"/>
+                                            <constraint firstItem="Gpz-lF-iNW" firstAttribute="top" secondItem="DWF-2I-LKZ" secondAttribute="top" constant="20" id="MgL-VY-o8M"/>
+                                            <constraint firstAttribute="trailing" secondItem="Gpz-lF-iNW" secondAttribute="trailing" constant="20" id="d2C-g1-xkC"/>
+                                            <constraint firstAttribute="bottom" secondItem="Gpz-lF-iNW" secondAttribute="bottom" constant="20" id="hyF-CA-Fr5"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpU-HV-FVa">
+                                        <rect key="frame" x="0.0" y="10.5" width="375" height="299.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SKw-ji-tM6">
+                                                <rect key="frame" x="20" y="20" width="335" height="259.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="กรอกเบอร์โทรศัพท์ใหม่" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCv-kS-tN9">
+                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="6xc-dA-EpA"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="23"/>
+                                                        <color key="textColor" red="0.37254901959999998" green="0.46274509800000002" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSI-QI-y96">
+                                                        <rect key="frame" x="0.0" y="60" width="335" height="50.5"/>
+                                                        <string key="text">ระบบจะส่งรหัส OT ไปให้ท่าน 
+เพื่อยืนยันการเปลี่ยนแปลงเบอร์โทรศัพท์</string>
+                                                        <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="16"/>
+                                                        <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YFF-KI-3Le">
+                                                        <rect key="frame" x="0.0" y="130.5" width="335" height="64"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iiq-cT-HG3">
+                                                                <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
+                                                                <subviews>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="08X XXX XXX" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W9v-68-lCg">
+                                                                        <rect key="frame" x="67.5" y="0.0" width="200" height="40"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="200" id="4wP-gw-aHS"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="20"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="bottom" secondItem="W9v-68-lCg" secondAttribute="bottom" id="KAk-Y0-dw7"/>
+                                                                    <constraint firstItem="W9v-68-lCg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iiq-cT-HG3" secondAttribute="leading" id="U1C-zu-neG"/>
+                                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="W9v-68-lCg" secondAttribute="trailing" id="URy-h7-s1q"/>
+                                                                    <constraint firstAttribute="height" constant="40" id="Zmj-zl-zxm"/>
+                                                                    <constraint firstItem="W9v-68-lCg" firstAttribute="centerX" secondItem="iiq-cT-HG3" secondAttribute="centerX" id="gr3-Ws-4Ty"/>
+                                                                    <constraint firstItem="W9v-68-lCg" firstAttribute="top" secondItem="iiq-cT-HG3" secondAttribute="top" id="wG2-mP-9bp"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVe-Y0-hsa">
+                                                                <rect key="frame" x="0.0" y="40" width="335" height="24"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="24" id="zPl-se-nZn"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="16"/>
+                                                                <color key="textColor" red="0.37254901959999998" green="0.36078431370000003" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="keq-ap-Fi2">
+                                                        <rect key="frame" x="0.0" y="214.5" width="335" height="45"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZu-GI-2Rt">
+                                                                <rect key="frame" x="0.0" y="0.0" width="335" height="45"/>
+                                                                <color key="backgroundColor" red="0.20392156859999999" green="0.76470588240000004" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="45" id="W9U-RT-eUi"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="18"/>
+                                                                <state key="normal" title="ส่งรหัส OTP">
+                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="sendOTPAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CSV-Ac-QTC"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="SKw-ji-tM6" secondAttribute="bottom" constant="20" id="3zX-f5-NWG"/>
+                                            <constraint firstItem="SKw-ji-tM6" firstAttribute="leading" secondItem="cpU-HV-FVa" secondAttribute="leading" constant="20" id="Fwe-MT-hNb"/>
+                                            <constraint firstAttribute="trailing" secondItem="SKw-ji-tM6" secondAttribute="trailing" constant="20" id="aBf-kH-4xd"/>
+                                            <constraint firstItem="SKw-ji-tM6" firstAttribute="top" secondItem="cpU-HV-FVa" secondAttribute="top" constant="20" id="r1K-52-RCd"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jG-SH-Vzr">
+                                        <rect key="frame" x="345" y="10" width="20" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="3jG-SH-Vzr" secondAttribute="height" multiplier="10:11" id="0AF-CF-pRu"/>
+                                        </constraints>
+                                        <state key="normal" image="ic_close_circle"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="cpU-HV-FVa" firstAttribute="centerY" secondItem="Hye-08-Cgm" secondAttribute="centerY" id="4Zg-JL-gr3"/>
+                                    <constraint firstItem="DWF-2I-LKZ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Hye-08-Cgm" secondAttribute="top" id="GQl-70-XFu"/>
+                                    <constraint firstAttribute="trailing" secondItem="3jG-SH-Vzr" secondAttribute="trailing" constant="10" id="KmG-R5-5rw"/>
+                                    <constraint firstItem="3jG-SH-Vzr" firstAttribute="top" secondItem="Hye-08-Cgm" secondAttribute="top" constant="10" id="NLK-h2-XQW"/>
+                                    <constraint firstAttribute="trailing" secondItem="cpU-HV-FVa" secondAttribute="trailing" id="dly-b6-wuo"/>
+                                    <constraint firstItem="DWF-2I-LKZ" firstAttribute="trailing" secondItem="Hye-08-Cgm" secondAttribute="trailing" id="eKx-38-MT5"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cpU-HV-FVa" secondAttribute="bottom" id="kyi-20-bCe"/>
+                                    <constraint firstItem="DWF-2I-LKZ" firstAttribute="centerY" secondItem="Hye-08-Cgm" secondAttribute="centerY" id="mwl-c6-vRd"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="DWF-2I-LKZ" secondAttribute="bottom" id="oXG-J8-mQ6"/>
+                                    <constraint firstItem="DWF-2I-LKZ" firstAttribute="leading" secondItem="Hye-08-Cgm" secondAttribute="leading" id="rxK-Zl-8Pp"/>
+                                    <constraint firstItem="cpU-HV-FVa" firstAttribute="leading" secondItem="Hye-08-Cgm" secondAttribute="leading" id="xyf-a7-fl3"/>
+                                    <constraint firstItem="cpU-HV-FVa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Hye-08-Cgm" secondAttribute="top" id="yIu-sC-gJl"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemPinkColor"/>
                     </view>
+                    <connections>
+                        <outlet property="btnConfirm" destination="KZu-GI-2Rt" id="V2a-uz-iuB"/>
+                        <outlet property="confirmView" destination="DWF-2I-LKZ" id="gjb-76-Jd9"/>
+                        <outlet property="lblMessage" destination="SVe-Y0-hsa" id="LNx-MI-Cfp"/>
+                        <outlet property="lblSubtitle" destination="wSI-QI-y96" id="Slg-S5-EO0"/>
+                        <outlet property="lblTitle" destination="aCv-kS-tN9" id="6l0-bl-hxw"/>
+                        <outlet property="otpView" destination="VPp-YQ-0jv" id="rn0-yp-rxQ"/>
+                        <outlet property="sendingView" destination="cpU-HV-FVa" id="keI-So-E9d"/>
+                        <outlet property="subTitleLabel" destination="wSI-QI-y96" id="ETL-gR-c1Y"/>
+                        <outlet property="textField" destination="W9v-68-lCg" id="bdp-J8-QOW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="20" y="82"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_close_circle" width="19.5" height="19.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
