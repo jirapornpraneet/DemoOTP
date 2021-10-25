@@ -125,7 +125,7 @@
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSI-QI-y96">
                                                         <rect key="frame" x="0.0" y="60" width="335" height="50.5"/>
-                                                        <string key="text">ระบบจะส่งรหัส OT ไปให้ท่าน 
+                                                        <string key="text">ระบบจะส่งรหัส OTP ไปให้ท่าน 
 เพื่อยืนยันการเปลี่ยนแปลงเบอร์โทรศัพท์</string>
                                                         <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="16"/>
                                                         <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
@@ -231,7 +231,7 @@
                         <outlet property="btnConfirm" destination="KZu-GI-2Rt" id="V2a-uz-iuB"/>
                         <outlet property="confirmView" destination="DWF-2I-LKZ" id="gjb-76-Jd9"/>
                         <outlet property="lblMessage" destination="SVe-Y0-hsa" id="LNx-MI-Cfp"/>
-                        <outlet property="lblSubtitle" destination="wSI-QI-y96" id="Slg-S5-EO0"/>
+                        <outlet property="lblSubtitle" destination="cO1-FO-YKg" id="SdT-E3-dH7"/>
                         <outlet property="lblTitle" destination="aCv-kS-tN9" id="6l0-bl-hxw"/>
                         <outlet property="otpView" destination="VPp-YQ-0jv" id="rn0-yp-rxQ"/>
                         <outlet property="sendingView" destination="cpU-HV-FVa" id="keI-So-E9d"/>

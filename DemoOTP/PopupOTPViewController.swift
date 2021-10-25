@@ -47,7 +47,7 @@ class PopupOTPViewController: UIViewController {
         btnConfirm.setupCorner(2)
         btnConfirm.backgroundColor = #colorLiteral(red: 0.2039215686, green: 0.7647058824, blue: 0.5607843137, alpha: 1)
         btnConfirm.setHolder(false, textColor: .white, bgColor: #colorLiteral(red: 0.2039215686, green: 0.7647058824, blue: 0.5607843137, alpha: 1))
-        subTitleLabel.text = "ระบบจะส่งรหัส OT ไปให้ท่าน \nเพื่อยืนยันการเปลี่ยนแปลงเบอร์โทรศัพท์"
+        subTitleLabel.text = "ระบบจะส่งรหัส OTP ไปให้ท่าน \nเพื่อยืนยันการเปลี่ยนแปลงเบอร์โทรศัพท์"
     }
     
     func setupOtpView() {
