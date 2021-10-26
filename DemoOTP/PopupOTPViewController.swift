@@ -23,6 +23,8 @@ class PopupOTPViewController: UIViewController {
     @IBOutlet weak var lblSubtitle: UILabel!
     @IBOutlet weak var lblMessage: UILabel?
     
+    private var tapToDismiss: UITapGestureRecognizer?
+    internal var keyboardFrame: CGRect?
     
     var onSuccess: (()->())?
     var isDone = false
@@ -38,13 +40,14 @@ class PopupOTPViewController: UIViewController {
         super.viewDidLoad()
         setupInterface()
         setupOtpView()
+        setupViewTapToDismissKeyboard()
     }
     
     func setupInterface() {
         setupOtpView()
         textField.delegate = self
         textField.underlined(2)
-        btnConfirm.setupCorner(2)
+        btnConfirm.setupCorner()
         btnConfirm.backgroundColor = #colorLiteral(red: 0.2039215686, green: 0.7647058824, blue: 0.5607843137, alpha: 1)
         btnConfirm.setHolder(false, textColor: .white, bgColor: #colorLiteral(red: 0.2039215686, green: 0.7647058824, blue: 0.5607843137, alpha: 1))
         subTitleLabel.text = "ระบบจะส่งรหัส OTP ไปให้ท่าน \nเพื่อยืนยันการเปลี่ยนแปลงเบอร์โทรศัพท์"
@@ -117,9 +120,57 @@ extension PopupOTPViewController {
         self.lblMessage?.text = "(Ref No: 1234)"
         self.otpView.textFieldsCollection[0].becomeFirstResponder()
         self.otpView.refreshView()
+        dismissKeyboard()
     }
     
     func validateOTP(_ otp: String) {
         self.onSuccess?()
+        dismissKeyboard()
+    }
+}
+
+extension PopupOTPViewController {
+    
+    func setupViewTapToDismissKeyboard() {
+        if tapToDismiss == nil {
+            tapToDismiss = UITapGestureRecognizer(target: self, action: #selector(didTappedToDismissKeyboard))
+            if let tap = tapToDismiss {
+                view.addGestureRecognizer(tap)
+            }
+        }
+    }
+    
+    @objc func didTappedToDismissKeyboard() {
+        dismissKeyboard()
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+        guard let tap = tapToDismiss else { return }
+        view.removeGestureRecognizer(tap)
+        tapToDismiss = nil
+    }
+    
+    func setupKeyboardNotification() {
+        // Keyboard
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(_ notification:Notification) {
+        setupViewTapToDismissKeyboard()
+        if let responder = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            keyboardFrame = self.view.convert(responder, from: nil)
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification:Notification) {
+        dismissKeyboard()
+        keyboardFrame = nil
+    }
+    
+    @objc func keyboardDidShow(_ notification:Notification) {
+        //
     }
 }
